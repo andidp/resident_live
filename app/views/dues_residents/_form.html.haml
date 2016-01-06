@@ -1,0 +1,51 @@
+= form_for @dues_resident, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @dues_resident.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@dues_resident.errors.count, "error")} prohibited this dues_resident from being saved:"
+
+      %ul
+        - @dues_resident.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :resident_id, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.number_field :resident_id, class: 'form-control'
+  .form-group
+    = f.label :type, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :type, class: 'form-control'
+  .form-group
+    = f.label :year, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.date_select :year, { :order => [:year], :start_year => 2000, :end_year => Time.now.year, :prompt => {:year => "Select year"} }, { :class => "form-control" }
+  .form-group
+    = f.label :for_month, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :for_month, class: 'form-control'
+  .form-group
+    = f.label :for_week, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :for_week, class: 'form-control'
+  .form-group
+    = f.label :for_date, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.date_select :for_date, class: 'form-control'
+  .form-group
+    = f.label :amount, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :amount, class: 'form-control'
+  .form-group
+    = f.label :created_at, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :created_at, class: 'form-control'
+  .form-group
+    = f.label :updated_at, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :updated_at, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

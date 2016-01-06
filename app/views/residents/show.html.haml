@@ -1,0 +1,26 @@
+.page-header
+  = link_to residents_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_resident_path(@resident), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show resident
+
+%dl.dl-horizontal
+  %dt Parent:
+  %dd= @resident.parent_id
+  %dt Name:
+  %dd= @resident.name
+  %dt Phone:
+  %dd= @resident.phone
+  %dt Address:
+  %dd= @resident.address
+  %dt Job status:
+  %dd= @resident.job_status
+  %dt Home number:
+  %dd= @resident.home_number
+  %dt Created at:
+  %dd= @resident.created_at
+  %dt Updated at:
+  %dd= @resident.updated_at

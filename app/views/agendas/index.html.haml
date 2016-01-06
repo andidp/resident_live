@@ -1,0 +1,32 @@
+.page-header
+  = link_to new_agenda_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Agenda
+  %h1 Listing agendas
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Type
+        %th Venue
+        %th Implementation date
+        %th Created at
+        %th Updated at
+        %th
+        %th
+        %th
+
+    %tbody
+      - @agendas.each do |agenda|
+        %tr
+          %td= agenda.name
+          %td= agenda.type
+          %td= agenda.venue
+          %td= agenda.implementation_date
+          %td= agenda.created_at
+          %td= agenda.updated_at
+          %td= link_to 'Show', agenda
+          %td= link_to 'Edit', edit_agenda_path(agenda)
+          %td= link_to 'Destroy', agenda, data: { confirm: 'Are you sure?' }, method: :delete

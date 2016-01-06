@@ -1,0 +1,28 @@
+.page-header
+  = link_to dues_residents_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_dues_resident_path(@dues_resident), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show dues_resident
+
+%dl.dl-horizontal
+  %dt Resident:
+  %dd= @dues_resident.resident_id
+  %dt Type:
+  %dd= @dues_resident.type
+  %dt Year:
+  %dd= @dues_resident.year
+  %dt For month:
+  %dd= @dues_resident.for_month
+  %dt For week:
+  %dd= @dues_resident.for_week
+  %dt For date:
+  %dd= @dues_resident.for_date
+  %dt Amount:
+  %dd= @dues_resident.amount
+  %dt Created at:
+  %dd= @dues_resident.created_at
+  %dt Updated at:
+  %dd= @dues_resident.updated_at

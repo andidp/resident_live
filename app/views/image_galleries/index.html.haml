@@ -1,0 +1,30 @@
+.page-header
+  = link_to new_image_gallery_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Image gallery
+  %h1 Listing image_galleries
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Title
+        %th Image
+        %th Description
+        %th Created at
+        %th Updated at
+        %th
+        %th
+        %th
+
+    %tbody
+      - @image_galleries.each do |image_gallery|
+        %tr
+          %td= image_gallery.title
+          %td= image_tag image_gallery.image.url(:thumb)
+          %td= image_gallery.description
+          %td= image_gallery.created_at
+          %td= image_gallery.updated_at
+          %td= link_to 'Show', image_gallery
+          %td= link_to 'Edit', edit_image_gallery_path(image_gallery)
+          %td= link_to 'Destroy', image_gallery, data: { confirm: 'Are you sure?' }, method: :delete

@@ -1,0 +1,22 @@
+.page-header
+  = link_to video_galleries_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_video_gallery_path(@video_gallery), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show video_gallery
+
+%dl.dl-horizontal
+  %dt Album:
+  %dd= @video_gallery.album_id
+  %dt Title:
+  %dd= @video_gallery.title
+  %dt Video:
+  %dd= @video_gallery.video
+  %dt Description:
+  %dd= @video_gallery.description
+  %dt Created at:
+  %dd= @video_gallery.created_at
+  %dt Updated at:
+  %dd= @video_gallery.updated_at

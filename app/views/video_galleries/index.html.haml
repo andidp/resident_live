@@ -1,0 +1,32 @@
+.page-header
+  = link_to new_video_gallery_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Video gallery
+  %h1 Listing video_galleries
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Album
+        %th Title
+        %th Video
+        %th Description
+        %th Created at
+        %th Updated at
+        %th
+        %th
+        %th
+
+    %tbody
+      - @video_galleries.each do |video_gallery|
+        %tr
+          %td= video_gallery.album_id
+          %td= video_gallery.title
+          %td= video_gallery.video
+          %td= video_gallery.description
+          %td= video_gallery.created_at
+          %td= video_gallery.updated_at
+          %td= link_to 'Show', video_gallery
+          %td= link_to 'Edit', edit_video_gallery_path(video_gallery)
+          %td= link_to 'Destroy', video_gallery, data: { confirm: 'Are you sure?' }, method: :delete

@@ -1,0 +1,22 @@
+.page-header
+  = link_to agendas_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_agenda_path(@agenda), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show agenda
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @agenda.name
+  %dt Type:
+  %dd= @agenda.type
+  %dt Venue:
+  %dd= @agenda.venue
+  %dt Implementation date:
+  %dd= @agenda.implementation_date
+  %dt Created at:
+  %dd= @agenda.created_at
+  %dt Updated at:
+  %dd= @agenda.updated_at

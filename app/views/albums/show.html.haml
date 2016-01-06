@@ -1,0 +1,18 @@
+.page-header
+  = link_to albums_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_album_path(@album), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show album
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @album.name
+  %dt Description:
+  %dd= @album.description
+  %dt Created at:
+  %dd= @album.created_at
+  %dt Updated at:
+  %dd= @album.updated_at

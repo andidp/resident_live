@@ -1,0 +1,2 @@
+module DuesResidentsHelper
+end

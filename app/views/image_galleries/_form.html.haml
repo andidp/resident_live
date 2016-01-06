@@ -1,0 +1,35 @@
+= form_for @image_gallery, html: { class: "form-horizontal", role: "form", multipart: true  } do |f|
+  -if @image_gallery.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@image_gallery.errors.count, "error")} prohibited this image_gallery from being saved:"
+
+      %ul
+        - @image_gallery.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :title, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :image, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.file_field :image, class: 'form-control'
+  .form-group
+    = f.label :description, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :created_at, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :created_at, class: 'form-control'
+  .form-group
+    = f.label :updated_at, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :updated_at, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

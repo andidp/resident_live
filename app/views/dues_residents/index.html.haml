@@ -1,0 +1,38 @@
+.page-header
+  = link_to new_dues_resident_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Dues resident
+  %h1 Listing dues_residents
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Resident
+        %th Type
+        %th Year
+        %th For month
+        %th For week
+        %th For date
+        %th Amount
+        %th Created at
+        %th Updated at
+        %th
+        %th
+        %th
+
+    %tbody
+      - @dues_residents.each do |dues_resident|
+        %tr
+          %td= dues_resident.resident_id
+          %td= dues_resident.type
+          %td= dues_resident.year
+          %td= dues_resident.for_month
+          %td= dues_resident.for_week
+          %td= dues_resident.for_date
+          %td= dues_resident.amount
+          %td= dues_resident.created_at
+          %td= dues_resident.updated_at
+          %td= link_to 'Show', dues_resident
+          %td= link_to 'Edit', edit_dues_resident_path(dues_resident)
+          %td= link_to 'Destroy', dues_resident, data: { confirm: 'Are you sure?' }, method: :delete

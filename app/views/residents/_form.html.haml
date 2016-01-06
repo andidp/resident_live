@@ -1,0 +1,47 @@
+= form_for @resident, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @resident.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@resident.errors.count, "error")} prohibited this resident from being saved:"
+
+      %ul
+        - @resident.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :parent_id, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.number_field :parent_id, class: 'form-control'
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :phone, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :phone, class: 'form-control'
+  .form-group
+    = f.label :address, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_area :address, class: 'form-control'
+  .form-group
+    = f.label :job_status, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :job_status, class: 'form-control'
+  .form-group
+    = f.label :home_number, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :home_number, class: 'form-control'
+  .form-group
+    = f.label :created_at, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :created_at, class: 'form-control'
+  .form-group
+    = f.label :updated_at, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :updated_at, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

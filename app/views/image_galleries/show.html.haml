@@ -1,0 +1,20 @@
+.page-header
+  = link_to image_galleries_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_image_gallery_path(@image_gallery), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show image_gallery
+
+%dl.dl-horizontal
+  %dt Title:
+  %dd= @image_gallery.title
+  %dt Image:
+  %dd= image_tag @image_gallery.image.url(:medium)
+  %dt Description:
+  %dd= @image_gallery.description
+  %dt Created at:
+  %dd= @image_gallery.created_at
+  %dt Updated at:
+  %dd= @image_gallery.updated_at

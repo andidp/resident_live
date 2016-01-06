@@ -1,0 +1,36 @@
+.page-header
+  = link_to new_resident_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Resident
+  %h1 Listing residents
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Parent
+        %th Name
+        %th Phone
+        %th Address
+        %th Job status
+        %th Home number
+        %th Created at
+        %th Updated at
+        %th
+        %th
+        %th
+
+    %tbody
+      - @residents.each do |resident|
+        %tr
+          %td= resident.parent_id
+          %td= resident.name
+          %td= resident.phone
+          %td= resident.address
+          %td= resident.job_status
+          %td= resident.home_number
+          %td= resident.created_at
+          %td= resident.updated_at
+          %td= link_to 'Show', resident
+          %td= link_to 'Edit', edit_resident_path(resident)
+          %td= link_to 'Destroy', resident, data: { confirm: 'Are you sure?' }, method: :delete
