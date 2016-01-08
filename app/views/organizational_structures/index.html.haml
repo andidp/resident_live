@@ -1,0 +1,28 @@
+.page-header
+  = link_to new_organizational_structure_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Organizational structure
+  %h1 Listing organizational_structures
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th Created at
+        %th Updated at
+        %th
+        %th
+        %th
+
+    %tbody
+      - @organizational_structures.each do |organizational_structure|
+        %tr
+          %td= organizational_structure.name
+          %td= organizational_structure.description
+          %td= organizational_structure.created_at
+          %td= organizational_structure.updated_at
+          %td= link_to 'Show', organizational_structure
+          %td= link_to 'Edit', edit_organizational_structure_path(organizational_structure)
+          %td= link_to 'Destroy', organizational_structure, data: { confirm: 'Are you sure?' }, method: :delete

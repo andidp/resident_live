@@ -1,0 +1,18 @@
+.page-header
+  = link_to organizational_structures_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_organizational_structure_path(@organizational_structure), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show organizational_structure
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @organizational_structure.name
+  %dt Description:
+  %dd= @organizational_structure.description
+  %dt Created at:
+  %dd= @organizational_structure.created_at
+  %dt Updated at:
+  %dd= @organizational_structure.updated_at

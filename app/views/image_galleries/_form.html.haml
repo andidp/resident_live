@@ -11,6 +11,10 @@
           %li= msg
 
   .form-group
+    = f.label :album_id, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :album_id, Album.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: 'form-control'
+  .form-group
     = f.label :title, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :title, class: 'form-control'

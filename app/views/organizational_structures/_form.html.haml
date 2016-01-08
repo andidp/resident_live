@@ -1,26 +1,19 @@
-= form_for @video_gallery, html: { class: "form-horizontal", role: "form", multipart: true } do |f|
-  -if @video_gallery.errors.any?
+= form_for @organizational_structure, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @organizational_structure.errors.any?
     .alert.alert-danger.alert-dismissable{role: "alert"}
       %button.close{type: "button", data: {dismiss: "alert"} }
         %span{aria: {hidden: "true"} } &times;
         %span.sr-only Close
-      %h4= "#{pluralize(@video_gallery.errors.count, "error")} prohibited this video_gallery from being saved:"
+      %h4= "#{pluralize(@organizational_structure.errors.count, "error")} prohibited this organizational_structure from being saved:"
 
       %ul
-        - @video_gallery.errors.full_messages.each do |msg|
+        - @organizational_structure.errors.full_messages.each do |msg|
           %li= msg
+
   .form-group
-    = f.label :album_id, class: 'col-sm-2 control-label'
+    = f.label :name, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :album_id, Album.all.collect { |p| [ p.name, p.id ] }, include_blank: true, class: 'form-control'
-  .form-group
-    = f.label :title, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :title, class: 'form-control'
-  .form-group
-    = f.label :video, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.file_field :video, class: 'form-control'
+      = f.text_field :name, class: 'form-control'
   .form-group
     = f.label :description, class: 'col-sm-2 control-label'
     .col-sm-10

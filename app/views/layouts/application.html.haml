@@ -30,9 +30,19 @@
             %li.active
               %a{href: dues_residents_path} Dues Resident
             %li
-              %a{href: "#about"} About
-            %li
-              %a{href: "#contact"} Contact
+              %a{href: agendas_path} Agendas
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Galleries
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => albums_path} Album
+                %li
+                  %a{:href => image_galleries_path} Image Galleries
+                %li
+                  %a{:href => video_galleries_path} Video Galleries
+
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

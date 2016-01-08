@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :organizational_structures
   resources :video_galleries
   resources :image_galleries
   resources :albums
