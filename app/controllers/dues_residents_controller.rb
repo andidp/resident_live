@@ -1,4 +1,5 @@
 class DuesResidentsController < ApplicationController
+  autocomplete :resident, :name
   before_action :set_dues_resident, only: [:show, :edit, :update, :destroy]
 
   # GET /dues_residents
@@ -15,6 +16,7 @@ class DuesResidentsController < ApplicationController
   # GET /dues_residents/new
   def new
     @dues_resident = DuesResident.new
+    @parents = Resident.where(:parent_id => nil).pluck(:name, :id)
   end
 
   # GET /dues_residents/1/edit

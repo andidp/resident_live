@@ -13,7 +13,7 @@
   .form-group
     = f.label :resident_id, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.number_field :resident_id, class: 'form-control'
+      = f.select :resident_id, @parents, {:class => "form-control", :prompt => "Please select"}
   .form-group
     = f.label :type, class: 'col-sm-2 control-label'
     .col-sm-10

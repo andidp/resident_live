@@ -10,6 +10,7 @@ class ResidentsController < ApplicationController
   # GET /residents/1
   # GET /residents/1.json
   def show
+      @res_parent = Resident.find(@resident.parent_id)
   end
 
   # GET /residents/new

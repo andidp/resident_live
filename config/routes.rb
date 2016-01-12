@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :albums
   resources :agendas
   resources :residents
-  resources :dues_residents
+
+  resources :dues_residents do
+      get :autocomplete_resident_name, :on => :collection
+  end
+
   resources :residents
 
   root 'residents#index'

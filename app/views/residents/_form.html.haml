@@ -13,7 +13,7 @@
   .form-group
     = f.label :parent_id, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.number_field :parent_id, class: 'form-control'
+      = f.select :parent_id, Resident.where(:parent_id => nil).pluck(:name, :id), include_blank: true, class: 'form-control'
   .form-group
     = f.label :name, class: 'col-sm-2 control-label'
     .col-sm-10
