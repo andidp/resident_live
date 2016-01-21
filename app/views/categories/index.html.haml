@@ -1,0 +1,28 @@
+.page-header
+  = link_to new_category_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Category
+  %h1 Listing categories
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Tite
+        %th Description
+        %th Created at
+        %th Updated at
+        %th
+        %th
+        %th
+
+    %tbody
+      - @categories.each do |category|
+        %tr
+          %td= category.tite
+          %td= category.description
+          %td= category.created_at
+          %td= category.updated_at
+          %td= link_to 'Show', category
+          %td= link_to 'Edit', edit_category_path(category)
+          %td= link_to 'Destroy', category, data: { confirm: 'Are you sure?' }, method: :delete
