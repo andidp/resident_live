@@ -18,3 +18,33 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+jQuery(document).ready(function(){
+    // jQuery('.nav li').on('click', function(){ 
+    //     jQuery('.nav li.active').removeClass();
+    //     jQuery(this).addClass('active'); 
+        
+    // });
+    
+    jQuery(function(){
+      function stripTrailingSlash(str) {
+        if(str.substr(-1) == '/') {
+          return str.substr(0, str.length - 1);
+        }
+        return str;
+      }
+    
+      var url = window.location.pathname;  
+      var activePage = stripTrailingSlash(url);
+      console.log(activePage);
+    
+      jQuery('.nav li a').each(function(){  
+        var currentPage = stripTrailingSlash(jQuery(this).attr('href'));
+    
+        if (activePage == currentPage) {
+          jQuery(this).parent().addClass('active'); 
+        } 
+      });
+    });
+    
+});
