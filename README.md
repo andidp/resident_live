@@ -5,6 +5,7 @@ This Application is for recording the activity in small citizens, named "RT = Ru
 - How to install:
     - git clone https://github.com/andidp/resident_live.git
     - change directory to root folder application
-    - run: bundle install
-    - run: rake:db migrate
+    - run: *bundle install*
+    - run: *rake db:migrate*
+	- run: *rails server*
     - if in localhost: access http://localhost:3000
